@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mystery Game</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #1d1f21;
+            color: #00ff00;
+            text-align: center;
+        }
+        .hidden {
+            display: none;
+        }
+        button {
+            background-color: #ff0000;
+            border: none;
+            padding: 15px 32px;
+            font-size: 20px;
+            margin: 20px;
+            cursor: pointer;
+        }
+        button.green {
+            background-color: #00ff00;
+        }
+        #videoCall {
+            display: none;
+        }
+        #callText {
+            font-size: 24px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Join your mystery game</h1>
+    <p>Solve the puzzle for the progress</p>
+    <button id="startButton">Start Game</button>
+    <div id="videoCall" class="hidden">
+        <p id="callText">Unknown</p>
+        <button class="green" id="answerCall">Answer</button>
+        <button class="red" id="declineCall">Decline</button>
+        <video id="callVideo" width="640" height="360" controls>
+            <source src="videocall.mp4" type="video/mp4">
+        </video>
+    </div>
+    <div id="codeContainer" class="hidden">
+        <h2>You received a code: <span id="code">symbol</span></h2>
+    </div>
+    <script>
+        document.getElementById('startButton').addEventListener('click', function() {
+            // Aici va fi logica jocului tău
+            alert('Game has started!');
+            document.getElementById('startButton').style.display = 'none';
+            setTimeout(function() {
+                document.getElementById('videoCall').style.display = 'block';
+            }, 3000); // Apelul va apărea după 3 secunde
+        });
+
+        document.getElementById('answerCall').addEventListener('click', function() {
+            // Redă videoclipul
+            document.getElementById('callVideo').play();
+            setTimeout(function() {
+                document.getElementById('videoCall').style.display = 'none';
+                document.getElementById('codeContainer').style.display = 'block';
+            }, 10000); // După 10 secunde, va apărea codul
+        });
+
+        document.getElementById('declineCall').addEventListener('click', function() {
+            // Redă apelul încă o dată
+            document.getElementById('callText').innerText = "Unknown";
+            document.getElementById('videoCall').style.display = 'none';
+            setTimeout(function() {
+                document.getElementById('videoCall').style.display = 'block';
+            }, 3000);
+        });
+    </script>
+</body>
+</html>
