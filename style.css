@@ -1,0 +1,36 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #1d1f21;
+    color: #00ff00;
+    text-align: center;
+}
+
+.hidden {
+    display: none;
+}
+
+button {
+    background-color: #ff0000;
+    border: none;
+    padding: 15px 32px;
+    font-size: 20px;
+    margin: 20px;
+    cursor: pointer;
+}
+
+button.green {
+    background-color: #00ff00;
+}
+
+#videoCall {
+    display: none;
+}
+
+#callText {
+    font-size: 24px;
+}
+
+#codeContainer {
+    font-size: 20px;
+    color: #ffcc00;
+}
